@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.2"
+             xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+    <!--
+        Agrupa as configurações na unidade de persistencia, nesse exemplo
+        de uma conexão com um banco h2, utilizando hibernate
+    -->
+    <!-- indica se a transação será gerenciada pelo container ou manualmente -->
+    <persistence-unit name="loja" transaction-type="RESOURCE_LOCAL">
+        <properties>
+            <!-- driver do banco utilizado -->
+            <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:databasename"/>
+            <property name="javax.persistence.jdbc.user" value="user"/>
+            <property name="javax.persistence.jdbc.password" value="password"/>
+            <!-- dialect do banco utilizado -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
+            <!-- exibe o sql utilzado -->
+            <property name="hibernate.show_sql" value="true"/>
+            <!-- formata o sql utilzado -->
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+        </properties>
+    </persistence-unit>
+</persistence>
